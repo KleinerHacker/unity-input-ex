@@ -1,0 +1,20 @@
+{
+    "name": "UnityInputEx.Editor",
+    "rootNamespace": "UnityInputEx.Editor",
+    "references": [
+        "GUID:90ce17a1379b2374380d2fa32790dd30",
+        "GUID:5d0595cabca3f65418ec01a472735d07",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

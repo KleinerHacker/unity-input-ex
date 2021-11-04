@@ -1,0 +1,18 @@
+{
+    "name": "UnityInputEx.Demo",
+    "rootNamespace": "UnityInputEx.Demo",
+    "references": [
+        "GUID:90ce17a1379b2374380d2fa32790dd30"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
