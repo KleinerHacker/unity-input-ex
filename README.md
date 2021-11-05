@@ -4,7 +4,8 @@ Extension for new input system of Unity
 # install
 Use this repository in Unity directly.
 
-### requirements
+### Dependencies
+* New Input System
 * https://github.com/KleinerHacker/unity-editor-ex
 
 # usage
