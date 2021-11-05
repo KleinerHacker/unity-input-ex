@@ -1,5 +1,5 @@
 {
-  "name": "org.pcsoft.unity.input-ex",
+  "name": "org.pcsoft.input-ex",
   "version": "1.0.0",
   "displayName": "Unity Input Extension",
   "description": "Extension for new Input System of Unity.",
