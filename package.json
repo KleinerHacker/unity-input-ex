@@ -5,7 +5,7 @@
   "description": "Extension for new Input System of Unity.",
   "unity": "2021.1",
   "keywords": [
-    "editor",
+    "input",
     "extension",
     "tooling"
   ],
