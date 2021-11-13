@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.IMGUI.Controls;
-using UnityEditorEx.Editor.editor_ex.Scripts._90_Editor.Utils.Extensions;
+using UnityEditorEx.Editor.editor_ex.Scripts.Editor.Utils.Extensions;
 using UnityInputEx.Runtime.input_ex.Scripts.Runtime.Assets;
 
 namespace UnityInputEx.Editor.input_ex.Scripts.Editor.Assets
