@@ -14,9 +14,9 @@ using InputValue = UnityInputEx.Runtime.input_ex.Scripts.Runtime.Assets.InputVal
 
 namespace UnityInputEx.Runtime.input_ex.Scripts.Runtime.Components
 {
-    [AddComponentMenu(UnityInputConstants.Root + "/Input System")]
+    [AddComponentMenu(UnityInputConstants.Root + "/Asset Input System")]
     [DisallowMultipleComponent]
-    public sealed class InputSystem : MonoBehaviour
+    public sealed class AssetInputSystem : MonoBehaviour
     {
         #region Inpsector Data
 
