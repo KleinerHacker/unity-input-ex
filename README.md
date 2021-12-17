@@ -14,4 +14,4 @@ URL: https://package.openupm.com
 Scope: org.pcsoft
 
 # usage
-TODO
+Inherite from EventInputSystem class.
