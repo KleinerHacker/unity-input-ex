@@ -44,7 +44,7 @@ namespace UnityInputEx.Runtime.input_ex.Scripts.Runtime.Components
     }
 
     /// <summary>
-    /// Use this for events marked with <see cref="EventInputMemberType.Axis2D"/>
+    /// Use this for events marked with <see cref="EventInputMemberType.Axis2D"/> or <see cref="EventInputMemberType.Point"/>
     /// </summary>
     public class Axis2DInputEventArgs : EventArgs
     {

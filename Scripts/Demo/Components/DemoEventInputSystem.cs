@@ -18,33 +18,37 @@ namespace UnityInputEx.Demo.input_ex.Scripts.Demo.Components
 
         [EventInputMember(nameof(Identifier.Axis), Type = EventInputMemberType.Axis)]
         public event EventHandler<AxisInputEventArgs> OnAxis;
-        
+
         [EventInputMember(nameof(Identifier.Axis2D), Type = EventInputMemberType.Axis2D)]
         public event EventHandler<Axis2DInputEventArgs> OnAxis2D;
-        
+
+        [EventInputMember(nameof(Identifier.Point), Type = EventInputMemberType.Point)]
+        public event EventHandler<Axis2DInputEventArgs> OnPoint;
+
         public interface IDemoInput : IEventInput
         {
             [EventInputMember(nameof(Identifier.Pressed))]
-            bool IsPressed();
+            bool IsPressed { get; }
 
             [EventInputMember(nameof(Identifier.Activated), Type = EventInputMemberType.Activation)]
             bool IsActivated();
 
             [EventInputMember(nameof(Identifier.Axis), Type = EventInputMemberType.Axis)]
             float GetAxis();
-            
+
             [EventInputMember(nameof(Identifier.Axis2D), Type = EventInputMemberType.Axis2D)]
             Vector2 GetAxis2D();
+
+            [EventInputMember(nameof(Identifier.Point), Type = EventInputMemberType.Point)]
+            Vector2? GetPoint { get; }
         }
 
         private sealed class KeyboardInput : IDemoInput
         {
             public bool IsAvailable => Keyboard.current.IsAvailable();
 
-            public bool IsPressed()
-            {
-                return Keyboard.current.xKey.wasPressedThisFrame;
-            }
+            public bool IsPressed => Keyboard.current.xKey.wasPressedThisFrame;
+
 
             public bool IsActivated()
             {
@@ -63,16 +67,28 @@ namespace UnityInputEx.Demo.input_ex.Scripts.Demo.Components
                     Keyboard.current.upArrowKey.isPressed ? -1f : Keyboard.current.downArrowKey.isPressed ? 1f : 0f
                 );
             }
+
+            public Vector2? GetPoint
+            {
+                get
+                {
+                    if (!Keyboard.current.spaceKey.isPressed)
+                        return null;
+
+                    return new Vector2(
+                        Keyboard.current.leftArrowKey.isPressed ? -1f : Keyboard.current.rightArrowKey.isPressed ? 1f : 0f,
+                        Keyboard.current.upArrowKey.isPressed ? -1f : Keyboard.current.downArrowKey.isPressed ? 1f : 0f
+                    );
+                }
+            }
         }
 
         private sealed class GamepadInput : IDemoInput
         {
             public bool IsAvailable => Gamepad.current.IsAvailable();
-            
-            public bool IsPressed()
-            {
-                return Gamepad.current.aButton.wasPressedThisFrame;
-            }
+
+            public bool IsPressed => Gamepad.current.aButton.wasPressedThisFrame;
+
 
             public bool IsActivated()
             {
@@ -88,6 +104,17 @@ namespace UnityInputEx.Demo.input_ex.Scripts.Demo.Components
             {
                 return Gamepad.current.leftStick.ReadValue();
             }
+
+            public Vector2? GetPoint
+            {
+                get
+                {
+                    if (!Gamepad.current.yButton.isPressed)
+                        return null;
+
+                    return Gamepad.current.leftStick.ReadValue();
+                }
+            }
         }
 
         private enum Identifier
@@ -96,6 +123,7 @@ namespace UnityInputEx.Demo.input_ex.Scripts.Demo.Components
             Activated,
             Axis,
             Axis2D,
+            Point
         }
     }
 }

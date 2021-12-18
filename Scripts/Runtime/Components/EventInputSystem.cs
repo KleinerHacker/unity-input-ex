@@ -12,19 +12,20 @@ namespace UnityInputEx.Runtime.input_ex.Scripts.Runtime.Components
         protected abstract T[] Inputs { get; }
 
         private T[] _availableInputs;
-        private IDictionary<string, InputReflectionData> _data = new Dictionary<string, InputReflectionData>();
+        private IList<InputReflectionData> _data;
+
 
         #region Builtin Methods
 
         protected virtual void Awake()
         {
             _availableInputs = Inputs.Where(x => x.IsAvailable).ToArray();
-            ReadReflectionData();
+            _data = ReadReflectionData();
         }
 
         private void LateUpdate()
         {
-            foreach (var value in _data.Values)
+            foreach (var value in _data)
             {
                 switch (value.Type)
                 {
@@ -39,6 +40,9 @@ namespace UnityInputEx.Runtime.input_ex.Scripts.Runtime.Components
                         break;
                     case EventInputMemberType.Axis2D:
                         HandleAxis2D(value);
+                        break;
+                    case EventInputMemberType.Point:
+                        HandlePoint(value);
                         break;
                     default:
                         throw new NotImplementedException(value.Type.ToString());
@@ -117,6 +121,23 @@ namespace UnityInputEx.Runtime.input_ex.Scripts.Runtime.Components
             foreach (var @event in data.RiseEvents)
             {
                 @event.Raise(this, new Axis2DInputEventArgs(value));
+            }
+        }
+        
+        private void HandlePoint(InputReflectionData data)
+        {
+            var value = (
+                    from input in _availableInputs
+                    from method in data.CheckMethods
+                    select (Vector2?)method.Invoke(input, Array.Empty<object>())
+                )
+                .FirstOrDefault(x => x != null);
+            if (value == null)
+                return;
+
+            foreach (var @event in data.RiseEvents)
+            {
+                @event.Raise(this, new Axis2DInputEventArgs(value.Value));
             }
         }
     }
