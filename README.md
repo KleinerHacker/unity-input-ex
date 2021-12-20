@@ -15,3 +15,7 @@ Scope: org.pcsoft
 
 # usage
 Inherite from EventInputSystem class.
+
+### Extensions
+* Common: You can check input device is available via `isAvailable`. It can work with `null` values.
+* Keyborad: You can read Vector2 values for `Arrows`, `Numpad` and `WASD`
