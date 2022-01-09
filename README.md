@@ -14,7 +14,7 @@ URL: https://package.openupm.com
 Scope: org.pcsoft
 
 # usage
-Inherite from EventInputSystem class.
+Inherite from EventInputSystem class. This component is loaded automatically at startup.
 
 ### Extensions
 * Common: You can check input device is available via `isAvailable`. It can work with `null` values.
