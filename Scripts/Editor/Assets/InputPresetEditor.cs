@@ -133,9 +133,9 @@ namespace UnityInputEx.Editor.input_ex.Scripts.Editor.Assets
                     {
                         return (x.Name, ((InputControl) x.GetValue(device)).displayName);
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
-                        Debug.Log(x.Name + ": " + x.PropertyType.FullName + ": " + x.GetMethod + ": " + x.DeclaringType);
+                        Debug.LogError(x.Name + ": " + x.PropertyType.FullName + ": " + x.GetMethod + ": " + x.DeclaringType);
                         throw;
                     }
                 })
