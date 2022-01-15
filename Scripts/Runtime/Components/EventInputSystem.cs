@@ -7,20 +7,12 @@ using UnityExtension.Runtime.extension.Scripts.Runtime.Components;
 
 namespace UnityInputEx.Runtime.input_ex.Scripts.Runtime.Components
 {
-    public abstract partial class EventInputSystem<T,TS> : SearchingSingletonBehavior<TS> where T : class, EventInputSystem<T,TS>.IEventInput where TS : EventInputSystem<T,TS>
+    public interface IEventInputSystem
     {
-        #region Static Area
-
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-        public static void CreateEventInputSystem()
-        {
-            var go = new GameObject("Event Input System");
-            go.AddComponent<TS>();
-            DontDestroyOnLoad(go);
-        }
-
-        #endregion
-        
+    }
+    
+    public abstract partial class EventInputSystem<T,TS> : SearchingSingletonBehavior<TS>, IEventInputSystem where T : class, EventInputSystem<T,TS>.IEventInput where TS : EventInputSystem<T,TS>
+    {
         protected abstract T[] Inputs { get; }
 
         private T[] _availableInputs;
