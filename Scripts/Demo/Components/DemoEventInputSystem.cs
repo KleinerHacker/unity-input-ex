@@ -1,3 +1,4 @@
+#if DEMO
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -127,3 +128,4 @@ namespace UnityInputEx.Demo.input_ex.Scripts.Demo.Components
         }
     }
 }
+#endif

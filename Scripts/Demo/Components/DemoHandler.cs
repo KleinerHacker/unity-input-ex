@@ -1,3 +1,4 @@
+#if DEMO
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -156,3 +157,4 @@ namespace UnityInputEx.Demo.input_ex.Scripts.Demo.Components
         #endregion
     }
 }
+#endif
