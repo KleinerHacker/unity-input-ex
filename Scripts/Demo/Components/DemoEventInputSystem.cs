@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityInputEx.Runtime.input_ex.Scripts.Runtime.Components;
 using UnityInputEx.Runtime.input_ex.Scripts.Runtime.Utils.Extensions;
+#pragma warning disable CS0067
 
 namespace UnityInputEx.Demo.input_ex.Scripts.Demo.Components
 {
