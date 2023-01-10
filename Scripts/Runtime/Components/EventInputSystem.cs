@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityCommonEx.Runtime.common_ex.Scripts.Runtime.Utils.Extensions;
 using UnityEngine;
-using UnityExtension.Runtime.extension.Scripts.Runtime.Components;
 using UnityExtension.Runtime.extension.Scripts.Runtime.Components.Singleton;
 using UnityExtension.Runtime.extension.Scripts.Runtime.Components.Singleton.Attributes;
 
@@ -23,7 +22,7 @@ namespace UnityInputEx.Runtime.input_ex.Scripts.Runtime.Components
 
         #region Builtin Methods
 
-        protected virtual void Awake()
+        protected override void DoAwake()
         {
             _availableInputs = Inputs.Where(x => x.IsAvailable).ToArray();
             _data = ReadReflectionData();
