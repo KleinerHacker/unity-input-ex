@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
+using UnityInputEx.Runtime.input_ex.Scripts.Runtime.Types;
 
 namespace UnityInputEx.Runtime.input_ex.Scripts.Runtime.Utils.Extensions
 {
@@ -28,6 +29,17 @@ namespace UnityInputEx.Runtime.input_ex.Scripts.Runtime.Utils.Extensions
                 (Keyboard.current.aKey.isPressed ? -1f : 0f) + (Keyboard.current.dKey.isPressed ? 1f : 0f),
                 (Keyboard.current.wKey.isPressed ? -1f : 0f) + (Keyboard.current.sKey.isPressed ? 1f : 0f)
             );
+        }
+
+        public static Vector2 GetAxis(this Keyboard keyboard, KeyAxis axis)
+        {
+            return axis switch
+            {
+                KeyAxis.Arrows => GetArrows(keyboard),
+                KeyAxis.Numpad => GetNumpad(keyboard),
+                KeyAxis.WASD => GetWASD(keyboard),
+                _ => throw new NotImplementedException(axis.ToString())
+            };
         }
     }
 }
