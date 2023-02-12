@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityBase.Runtime.@base.Scripts.Runtime.Components.Singleton;
+using UnityBase.Runtime.@base.Scripts.Runtime.Components.Singleton.Attributes;
 using UnityCommonEx.Runtime.common_ex.Scripts.Runtime.Utils.Extensions;
 using UnityEngine;
-using UnityExtension.Runtime.extension.Scripts.Runtime.Components.Singleton;
-using UnityExtension.Runtime.extension.Scripts.Runtime.Components.Singleton.Attributes;
 
 namespace UnityInputEx.Runtime.input_ex.Scripts.Runtime.Components
 {
@@ -13,7 +13,7 @@ namespace UnityInputEx.Runtime.input_ex.Scripts.Runtime.Components
     }
     
     [Singleton(Scope = SingletonScope.Application, Instance = SingletonInstance.RequiresNewInstance, CreationTime = SingletonCreationTime.Loading, ObjectName = "Event Input System")]
-    public abstract partial class EventInputSystem<T,TS> : SingletonBehavior<TS>, IEventInputSystem where T : class, EventInputSystem<T,TS>.IEventInput where TS : EventInputSystem<T,TS>
+    public abstract partial class EventInputSystem<T,TS> : SingletonBehavior<TS>, IEventInputSystem where T : class, EventInputSystem<T, TS>.IEventInput where TS : EventInputSystem<T,TS>
     {
         protected abstract T[] Inputs { get; }
 

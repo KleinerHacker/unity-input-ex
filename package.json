@@ -1,6 +1,6 @@
 {
   "name": "org.pcsoft.input-ex",
-  "version": "1.1.11",
+  "version": "1.1.12",
   "displayName": "Unity Input Extension",
   "description": "Extension for new Input System of Unity.",
   "unity": "2021.3",
@@ -11,7 +11,7 @@
   ],
   "dependencies": {
     "org.pcsoft.editor-ex":"1.1.17",
-    "org.pcsoft.extension":"1.9.0",
+    "org.pcsoft.base":"1.0.0",
     "org.pcsoft.common-ex":"1.1.10",
     "com.unity.inputsystem": "1.4.0"
   },
